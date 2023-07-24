@@ -15,13 +15,13 @@ The Blog Management System is a simple web application built with Laravel that a
 1. Clone the repository or download the source code:
 
 ```bash
-git clone https://github.com/your-username/blog-management-system.git
+git clone https://github.com/swapins/laravelblog.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd blog-management-system
+cd laravelblog
 ```
 
 3. Install the required PHP dependencies using Composer:
