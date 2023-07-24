@@ -5,7 +5,7 @@ The Blog Management System is a simple web application built with Laravel that a
 
 ## Requirements
 
-- PHP 7.4 or higher
+- PHP 8.1 or higher
 - Composer
 - MySQL or any other compatible database
 - Node.js and npm (for frontend assets)
@@ -96,6 +96,85 @@ The application should now be accessible at `http://localhost:8000`.
 - Eloquent ORM to manage database operations and relationships.
 - Form validation to ensure valid and complete data submission.
 - Basic unit testing for critical components.
+
+## Assignment Requirements:
+
+### Database Design & Migrations:
+
+Database schema which includes two tables: `Users` and `Posts`.
+- The `Users` table include details like id, name, email, and password.
+- The `Posts` table contain details like id, user_id (foreign key), title, content, and timestamps.
+- /database/migrations - contain relavent files.
+Laravel migrations can be used to generate these tables in your database.
+
+### Data Seeding:
+- seeder and factory files to populate the `Users` and `Posts` table with some initial data.
+- database/factories/PostFactory.php
+- database/factories/UserFactory.php
+- database/seeders/BlogPostSeeder.php
+    Create 25 random blog posts for each users
+- database/seeders/UserSeeder.php
+    Create 10 random users (password : password123) and one user named admin 
+      Email : admin@admin.com, password : admin123
+
+   
+```bash
+php artisan db:seed
+php artisan db:seed --class=UserSeeder
+```
+
+### Authentication:
+- Basic authentication system where users can register, login, and logout. 
+- Only authenticated users should be able to write, edit, and delete their blog posts.
+
+## Tests
+
+- Conduct basic unit tests to validate the key components of the application.
+
+```bash
+php artisan test
+```
+
+```bash
+PASS  Tests\Feature\Auth\AuthenticationTest
+  ✓ login screen can be rendered                                                                              3.44s  
+  ✓ users can authenticate using the login screen                                                             1.03s  
+  ✓ users can not authenticate with invalid password                                                          0.32s  
+
+   PASS  Tests\Feature\Auth\EmailVerificationTest
+  ✓ email verification screen can be rendered                                                                 0.32s  
+  ✓ email can be verified                                                                                     0.15s  
+  ✓ email is not verified with invalid hash                                                                   0.16s  
+
+   PASS  Tests\Feature\Auth\PasswordConfirmationTest
+  ✓ confirm password screen can be rendered                                                                   0.07s  
+  ✓ password can be confirmed                                                                                 0.09s  
+  ✓ password is not confirmed with invalid password                                                           0.22s  
+
+   PASS  Tests\Feature\Auth\PasswordResetTest
+  ✓ reset password link screen can be rendered                                                                0.06s  
+  ✓ reset password link can be requested                                                                      0.30s  
+  ✓ reset password screen can be rendered                                                                     0.09s  
+  ✓ password can be reset with valid token                                                                    0.09s  
+
+   PASS  Tests\Feature\Auth\PasswordUpdateTest
+  ✓ password can be updated                                                                                   0.25s  
+  ✓ correct password must be provided to update password                                                      0.12s  
+
+   PASS  Tests\Feature\Auth\RegistrationTest
+  ✓ registration screen can be rendered                                                                       0.07s  
+  ✓ new users can register                                                                                    0.04s  
+
+   PASS  Tests\Feature\Post\PostTest
+  ✓ environment configuration                                                                                 0.02s  
+  ✓ user can create post                                                                                      0.05s  
+  ✓ user can update post                                                                                      0.03s  
+  ✓ user can delete post                                                                                      0.03s  
+  ✓ non auth user cannot create post                                                                          0.04s  
+  ✓ non auth user cannot edit post                                                                            0.03s  
+  ✓ non auth user cannot delete post                                                                          0.02s  
+  ✓ guest user can visit all posts                                                                            0.11s  
+```
 
 ## Contributing
 
