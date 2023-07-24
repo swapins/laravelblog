@@ -176,9 +176,31 @@ PASS  Tests\Feature\Auth\AuthenticationTest
   ✓ guest user can visit all posts                                                                            0.11s  
 ```
 
+## Assumptions
+Random Pictures are used for visual appel as placeholder which is hardcoded.
+Random Avatrs are used for profile.
+Dummy text used.
+
+Mail server need to be configure to send / test verification email / forget password
+
+### Mail 
+in ENV
+```
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=587
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="admin@laravelblog.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+contact : swapin@laravelone.in
 
 ## License
 
